@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.control.MenuButton?>
+
+
+<GridPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.hw2.HelloController" hgap="10" vgap="7">
+    <padding>
+        <Insets left="10" right="10" top="10" bottom="10"/>
+    </padding>
+
+    <Label text="Name" GridPane.columnIndex="1" GridPane.rowIndex="0" prefWidth="350"/>
+    <Label text="Street" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+    <Label text="City" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+    <Label text="State" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+    <Label text="Zip" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+    <Label text="Choose One" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+    <Label text="Type of Music" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+    <Label text="Type of App" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+    <Label text="Enter Title" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+    <Label text="Date Purchased" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+    <Label text="Account Number" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+
+
+    <TextField fx:id="nameField" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+    <TextField fx:id="streetField" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+    <TextField fx:id="cityField" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+    <TextField fx:id="stateField" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+    <TextField fx:id="zipField" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+    <TextField fx:id="titleField" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+    <TextField fx:id="dpField" GridPane.columnIndex="2" GridPane.rowIndex="9" />
+    <TextField fx:id="anField" GridPane.columnIndex="2" GridPane.rowIndex="10" />
+
+
+    <HBox GridPane.columnIndex="2" GridPane.rowIndex="5" spacing="130">
+        <CheckBox text="APP" fx:id="appCheckBox"
+                  onAction="#changeABCheckBox"/>
+        <CheckBox text="MUSIC" fx:id="musicCheckBox"
+                  onAction="#changeMBCheckBox"/>
+    </HBox>
+
+    <ComboBox  fx:id="musicCBox" GridPane.columnIndex="2" GridPane.rowIndex="6" prefWidth="350" onAction="#changeComboBox">
+        <items>
+            <FXCollections fx:factory="observableArrayList">
+                <String fx:value="CHOOSE ONE"/>
+                <String fx:value="POP" fx:id="popSelection"/>
+                <String fx:value="KPOP" fx:id="classicalSelection"/>
+                <String fx:value="RAP" fx:id="countrySelection"/>
+
+            </FXCollections>
+        </items>
+        <value>
+            <String fx:value="CHOOSE ONE"/>
+        </value>
+    </ComboBox>
+    <HBox GridPane.columnIndex="2" GridPane.rowIndex="7" spacing="30">
+        <fx:define>
+            <ToggleGroup fx:id="appType"/>
+        </fx:define>
+        <RadioButton  text="GAME" fx:id="gameButton" toggleGroup="$appType"
+                      onAction="#onRadioButtonClick"/>
+
+        <RadioButton  text="PRODUCTIVITY" fx:id="productButton" toggleGroup="$appType"
+                      onAction="#onRadioButtonClick"/>
+        <RadioButton  text="EDUCATION" fx:id="educationButton" toggleGroup="$appType"
+                      onAction="#onRadioButtonClick"/>
+    </HBox>
+
+    <Button text="SUBMIT"  fx:id="submitButton" GridPane.columnIndex="1" GridPane.rowIndex="11" maxWidth="1.7976931348623157E308" prefWidth="350" style="-fx-background-radius:50;"
+            onAction="#submitButtonClick"/>
+    <Button text="FINISH"  fx:id="finishButton"  GridPane.columnIndex="2" GridPane.rowIndex="11" maxWidth="1.7976931348623157E308" prefWidth="350" style="-fx-background-radius:50;"
+            onAction="#finishButtonClick"/>
+
+</GridPane>

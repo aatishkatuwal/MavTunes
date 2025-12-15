@@ -1,0 +1,9 @@
+Name: ethan
+Street: 3222
+City: qwe
+State: qwe
+Zip: qwe
+Title: wqe
+Date Purchased: qwe
+Account Number: qwe
+
